@@ -1,0 +1,13 @@
+version: '3'
+services:
+  letsencrypt:
+    image: jrcs/letsencrypt-nginx-proxy-companion
+    container_name: letsencrypt
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - nginx-proxy
+
+networks:
+  default:
+    external:
+      name: nginx-proxy
